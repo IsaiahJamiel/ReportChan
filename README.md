@@ -23,7 +23,9 @@ Rangkuman berdasarkan kode untuk setiap jenis QO di menu Summary QO. Setiap jeni
 Dari tabel rpt_inboundKPI, perbandingan total order dibagi Jumlah order yang selisih ed0tdate dan adddate nya lebih kecil dari value yang di set di rptQO_parameter dengan key RCV1.
 
 Rumus:
+
 $$ Achievement = {Total \over {N * (EditDate - AddDate >= @DayLimit )}} $$
+
   *@DayLimit = [rptQO_parameter].[HARI]
 (Total ASN di-received tepat waktu (max 1x24 jam) / Total ASN di-received) * 100%
 ## 2. Ketepatan waktu Storing / Putaway
@@ -38,12 +40,14 @@ $$
 $$
     Achievement = { Ontime \over Total } * 100 
 $$
+
 (Total barang yang dipindahkan tepat waktu (2x24 jam) / Total LPN yang di-received) * 100%
 
 ## 3. Ketepatan waktu proses picking GRW
 lama proses picking GRW (H+1). Diambil dari order dilakukan release sampai dengan status allocated/picked/pack
 
 Membaca tabel ITRN, Order (tipe 56), dan Pick Detail
+
 $$
     OnTime = { (SUM(PickingDetail.AddDate - (ITRN.AddDate)) < KPI )  }  
 $$
@@ -51,6 +55,7 @@ $$
 $$
     Achievement = { Ontime \over Total } * 100 
 $$
+
 (Total quantity barang yang rusak / Total quantity stock pada akhir bulan) * 100%
 
 ## 4. Ketepatan waktu proses picking Flow Thru	
@@ -59,6 +64,7 @@ Lama proses picking flowthru by caseid (H+2)
 Sama seperti tipe 3, namun tipe order 91
 
 Membaca tabel ITRN, Order (tipe 91), dan Pick Detail
+
 $$
     OnTime = { (SUM(PickingDetail.AddDate - (ITRN.AddDate)) < KPI )  }  
 $$
@@ -72,6 +78,7 @@ Membaca tabel [rpt_orderKPI] dengan tipe 56 dan status 95
 KPI = 5 hari
 Luar/Dalam kota dibedakan melalui tabel STORER kolom State.
 Jika kolom state = null, maka akan dianggap DK
+
 $$
     OnTime = { (SUM(Shippeddate - Requested Ship Date) < KPI )  }  
 $$
@@ -79,6 +86,7 @@ $$
 $$
     Achievement = { Ontime \over Total } * 100 
 $$
+
 (Total transaksi pengiriman GRW yang tepat waktu (max 5x24 jam) / Total transaksi GRW) * 100%
 
 ## 6. Ketepatan waktu pengiriman GRW - Luar Kota
@@ -86,6 +94,7 @@ Membaca tabel [rpt_orderKPI] dengan tipe 56 dan status 95
 KPI = 5 hari
 Luar/Dalam kota dibedakan melalui tabel STORER kolom State. 
 Jika kolom state = null, maka akan dianggap DK
+
 $$
     OnTime = { (SUM(Shippeddate - Requested Ship Date) < KPI )  }  
 $$
@@ -93,6 +102,7 @@ $$
 $$
     Achievement = { Ontime \over Total } * 100 
 $$
+
 (Total transaksi pengiriman GRW yang tepat waktu (max 5x24 jam) / Total transaksi GRW) * 100%
 
 ## 7. Ketepatan waktu pengiriman Flow Thru - Dalam kota    
@@ -102,10 +112,13 @@ Key = SHIPFTDK1
 Data diambil dari tabel [rpt_orderKPI] dengan tipe 91
 
 Dibedakan melalui [State] storer antara LK/DK
+
 $$
     OnTime = { (SUM(Release date/Allocated - Shipped Date) < KPI )  }  
 $$
+
 Jika Release date belom di set, maka akan menggunakan allocated date
+
 $$
     Achievement = { Ontime \over Total } * 100 
 $$
@@ -119,13 +132,17 @@ Key = SHIPFTDK1
 Data diambil dari tabel [rpt_orderKPI] dengan tipe 91
 
 Dibedakan melalui [State] storer antara LK/DK
+
 $$
     OnTime = { (SUM(Release date / Allocated Date - Shipped Date) < KPI )  }  
 $$
+
 Jika Release date belom di set, maka akan menggunakan allocated date
+
 $$
     Achievement = { Ontime \over Total } * 100 
 $$
+
 (Total transaksi pengiriman FT yang tepat waktu (max 5x24 jam) / Total transaksi FT) * 100%
 
 ## 9. Ketepatan pemenuhan quantity order (Fill Rate)
@@ -135,6 +152,7 @@ Membandingkan kuantitas ordered dan kuantitas pengiriman
 $$
     Achievement = {{TotalShipped \over TotalQTY} * 100 }
 $$
+
 (Total quantity shipment / Total quantity order) * 100%
 
 ## 10. LPPB DO
@@ -152,6 +170,7 @@ $$
 $$
     Achievement = {{OnTime \over TotalQTY} * 100 }
 $$
+
 (Total qty LPPB DO / Total quantity pengiriman barang ke store) * 100%
 
 ## 11. % Akurasi data stock barang di DC (Cycle count)
@@ -174,9 +193,11 @@ Key = DAMAGE1
 Data kerusakan diambil dari tabel [Support_HOLDTRN] 
 
 Data Total diambil dari tabel [ITRN] yang tidak memiliki tipe data 'MV'
+
 $$
     Achievement = {{Rusak \over Total Quantity} * 100 }
 $$
+
 (Total quantity barang yang rusak / Total quantity stock pada akhir bulan) * 100%
 
 ## 13. Produktivitas Picking GRW
@@ -217,6 +238,7 @@ key = CC2
 $$
     Achievement = {{Jumlah Perhitungan Akurat \over Jumlah perhitungan} * 100 }
 $$
+
 (Total penghitungan cycle count yang akurat / Total penghitungan yang dilakukan) * 100%
 
 
