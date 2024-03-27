@@ -30,6 +30,7 @@ $$ Achievement = {Total \over {N * (EditDate - AddDate >= @DayLimit )}} $$
 Perhitungan diambil dari lama barang hasil receipt berpindah dari Staging Inbound ke Staging Departemen. KPI: 2 hari
 
 Rumus:
+
 $$
     OnTime = { ((DatePutAway - GetDate()) < KPI )  }  
 $$
