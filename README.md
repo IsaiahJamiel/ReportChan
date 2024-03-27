@@ -1,22 +1,6 @@
 # LO-636 - Pengecheckan QO DC AHI Jababeka
 Rangkuman berdasarkan kode untuk setiap jenis QO di menu Summary QO. Setiap jenis QO di konfigurasi di dalam ```scprd.[WMWHSE[N]].[rptQO_parameter]```.
 
-- [LO-636 - Pengecheckan QO DC AHI Jababeka](#lo-636---pengecheckan-qo-dc-ahi-jababeka)
-  - [1. Ketepatan waktu Receiving ASN](#1-ketepatan-waktu-receiving-asn)
-  - [2. Ketepatan waktu Storing / Putaway](#2-ketepatan-waktu-storing--putaway)
-  - [3. Ketepatan waktu proses picking GRW](#3-ketepatan-waktu-proses-picking-grw)
-  - [4. Ketepatan waktu proses picking Flow Thru](#4-ketepatan-waktu-proses-picking-flow-thru)
-  - [5. Ketepatan waktu pengiriman GRW - Dalam Kota](#5-ketepatan-waktu-pengiriman-grw---dalam-kota)
-  - [6. Ketepatan waktu pengiriman GRW - Luar Kota](#6-ketepatan-waktu-pengiriman-grw---luar-kota)
-  - [7. Ketepatan waktu pengiriman Flow Thru - Dalam kota](#7-ketepatan-waktu-pengiriman-flow-thru---dalam-kota)
-  - [8. Ketepatan waktu pengiriman Flow Thru - Luar Kota](#8-ketepatan-waktu-pengiriman-flow-thru---luar-kota)
-  - [9. Ketepatan pemenuhan quantity order (Fill Rate)](#9-ketepatan-pemenuhan-quantity-order-fill-rate)
-  - [10. LPPB DO](#10-lppb-do)
-  - [11. % Akurasi data stock barang di DC (Cycle count)](#11--akurasi-data-stock-barang-di-dc-cycle-count)
-  - [12. Kerusakan Barang akibat handling DC](#12-kerusakan-barang-akibat-handling-dc)
-  - [13. Produktivitas Picking GRW](#13-produktivitas-picking-grw)
-  - [14. Produktivitas Picking Flow Thru](#14-produktivitas-picking-flow-thru)
-  - [15. Akurasi data stock barang di DC (AHI \& AHE)	--total cycle count yang dilakukan di DC](#15-akurasi-data-stock-barang-di-dc-ahi--ahe--total-cycle-count-yang-dilakukan-di-dc)
 
 
 ## 1. Ketepatan waktu Receiving ASN
