@@ -24,7 +24,7 @@ Dari tabel rpt_inboundKPI, perbandingan total order dibagi Jumlah order yang sel
 
 Rumus:
 
-$$ Achievement = {Total \over {N * (EditDate - AddDate >= @DayLimit )}} $$
+$$ Achievement = { {N * (EditDate - AddDate >= @DayLimit )} \over Total } $$
 
   *@DayLimit = [rptQO_parameter].[HARI]
 (Total ASN di-received tepat waktu (max 1x24 jam) / Total ASN di-received) * 100%
